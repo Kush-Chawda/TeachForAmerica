@@ -42,7 +42,7 @@ import com.google.gson.Gson;
 @Controller
 @Scope("session")
 public class CohortController {
-
+    
 	@Autowired
 	public CohortService cohortService;
 
@@ -73,6 +73,7 @@ public class CohortController {
 		if (request.getMethod().equalsIgnoreCase("GET")) {
 			return "redirect:selectCriteria";
 		}
+		 System.out.println("pp");
 
 		try {
 
@@ -133,6 +134,7 @@ public class CohortController {
 		logger.info("Cohort controller executin time taken " + timeDiff);
 		return "cohorts";
 	}
+
 
 	@RequestMapping(value = "/addCorpMember/{listType}/{corpsMemberId}/{cohortId}", method = RequestMethod.GET)
 	@ResponseBody
@@ -213,8 +215,8 @@ public class CohortController {
 			HttpSession session) {
 		JsonResponse resp = new JsonResponse();
 		try {
-
-			Gson criteriaGson = new Gson();
+			System.out.println("pradeep");
+ 			Gson criteriaGson = new Gson();
 			CriteriaFormBean criteriaFormBean = criteriaGson.fromJson(
 					session.getAttribute(
 							TFAConstants.SESSION_CRITERIA_FORM_BEAN_STRING)
